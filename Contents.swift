@@ -70,10 +70,9 @@ var averageGrade: [ String : String] = [ "Grade X" : "Y"]
  * Grade 12: B
  */
 let gradeAverage: [ Int : String] = [ 9 : "B",
-                                      10 : "A",
+                                      10 : "D",
                                       11 : "C",
-                                      12 : "B",
-                                      13 : "A"
+                                      12 : "B",    13: "A"
 
 ]
 
@@ -92,7 +91,7 @@ for ( grade, score) in gradeAverage {
 var highGrade = 0
 for (grade, score) in gradeAverage {
     if let highScore = gradeAverage[highGrade] {
-        if score <= highScore {
+        if score < highScore {
             highGrade = grade
         }
     } else {
@@ -107,20 +106,8 @@ print("Grade \(highGrade) got the highest score with \(winGrade)")
 }
 
 "C" > "D"
-"Armenia" > "Toledo"
-"Zambia" > "Colombia"
 
-/* Comments on QUESTION 10:
 
-I copied the solution from another folder, but understood what is doing. Very hard.  My rationale of what is doing is:
- - Starts the loop iterating from 0 and looking for that value in the dictionary, if it finds it, it unwraps the value and execute the search for high score.  If it doesn't it assigns the next integer (1) to grade and searches again.  
- - It able to unwrap the value of the lowest grade in this case 9, it compares the highGrade string to the dictionary pair, in the case of 9 is compared "B" to "B" and asssignes itself the highGrade variable.
- - IMPORTANT:  Strings can be compared in boolean terms like numbers, with Z being the largest and A the lowest. See examples above
- - That is the reason with the "if score < highScore {" assigned the less than statement to the highest grade.
- - Finally the code prints out the statement but only if is able to unwrap the highGrade value, protecting the print against a nil.
- - The code cannot deal with ties, if the comparator between "score and highScore" is "<" then it will output the highGrade to the lowest grade obtaining "A" or whatever the highest score is, if the comparator is "<=" it will output the highest grade obtaining the highest score.
- 
- */
 
 /*: 
  [Solution](solution)
